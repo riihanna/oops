@@ -1,0 +1,106 @@
+1.ENCAPSULATION:
+    - Wrapping up data members(properties/state) & functions(methods/behaviours) in a single entity.
+    - the single entity is a Class.
+    - encapsulation is achieved through classes.
+
+FULLY ENCAPSULATED CLASS:
+    - in which all the data members are private marked. 
+
+ADVANTAGES OF ENCAPSULATION:
+    1. Data hiding (in fully encapsulated class, no other class can directly access the members)
+    2. data hiding leads to security.  
+    3. if we want, we can make class read only (using setters)   
+    4. code reusability.
+    5. unit testing (makes things managable, readable)
+
+
+2. INHERITANCE:
+     - Inheriting the properties of one class into another class.
+     - eg. human class has properties weight, height, age. and now we wish to construct 2 class male and female which  will have same
+         properties as that of human. so male class can inherit the properties of human class instead of defining the same prperties again.
+
+                   human (parent class/super class/base class)
+                     |
+                     |
+                     |
+                   male  (child class/ sub class) 
+
+    - Syntax:for creating a male class
+            class child_class_name : mode parent_class_name
+
+            what is the mode of inheritance here?
+            if there is an attribute in  the human class that is marked public and it is inherited in the male class using public mode
+            then, then the newly created is also public.
+            . private entry in base class can not be inherited(i is not accessible) in the public mode .
+
+            conclusion-
+            access modifier on data members(super class) |  mode of inheritance(sub class)         
+             1. public                                      public                             public
+             2. public                                      private                            private
+             3. public                                      protected                          protected
+             4. protected                                   public                             protected
+             5. protected                                   private                            private
+             6. protected                                   protected                          protected
+             7. private                                     public                             not accessible
+             8. private                                     private                            not accessible
+             9. private                                     protected                          not accessible
+
+             * private data member of a class can not be inherited
+        what is protected ? similar to private but its child class can access its data members i.e. it supports inheritance.
+
+        Types of inheritance:
+            1. single inheritance         A ----->B
+            2. multi level inheritance    A------>B------>C
+            3. multiple inheritance       a inherits from b and c
+            4. hierarchial inheritance   one class acts as parent class for more than one class
+            5. hybrid inheritance        combination of more than one type of inheritance
+
+** Inheritance Ambiguity
+  - in case of multiple inheritance , where a class is deriving its data members from 2 or more
+  classes , let say class c is deriving its data members from class a and class b and the class a and b
+   have 2 functions with same name. so one function call in class c is from class a and the other
+   function call from the same name is from class b. 
+   so how will we know ?
+Solution :
+   //SCOPE RESOLUTION OPERATOR(::)
+   e.g  obj.a:: func()
+        obj.b:: func()
+     
+
+
+3. POLYMORPHISM
+     - means existing in multiple forms.
+       1. compile time polymorphism/  static polymorphism
+          - we know what exists in what forms, at the compile time only.
+              (i) function overloading 
+                  - to perform function loading, or if i want to make multiple functions with same name, changing the return type
+                  is not sufficient. input argument should also be modified or no of arguments should be modified.
+
+              (ii) operator overloading
+                  - increasing the functionality of an operator. 
+                  - apart from concatinating and adding, + operator can also be used in other forms.
+
+                  e.g lets perform subtraction using + operator
+                      -syntax: 
+                            return_type operator + (input_argument)
+                            {
+
+                            }
+       2. run time polymorphism/ dynamic polymorphism
+           (i)method overriding/function overriding
+              - suppose there exists a class A which has a function defined in the class and another class B 
+                inherits the data members of class A, however the classs B implements the function inherited from 
+                class A in a different form.
+
+                rules:- the method of parent class and child class must have the same name.
+                      - it is possible through inheritance only.
+                      - the method of the parent and the child class must have the same parameters.
+
+
+4. ABSTRACTION     
+   - implementation hiding
+   - only displaying the necessary information.
+   - it is achieved using access specifiers. public, protected, private
+   - only we can make the changes 
+   - code reusability
+   - secdurity                 
